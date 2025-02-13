@@ -1,0 +1,576 @@
+/* Importar fuente Grotesque */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grosso&display=swap');
+
+/* Variables de color */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #E09F19;
+    --tertiary-color: #F3C00F;
+    --text-primary: #5C3F0B;
+    --text-secondary: #6B6B6B;
+    --background-color: #F5F5F5;
+    --hover-bg: rgba(224, 159, 25, 0.2); /* Sombreado claro para hover */
+}
+
+/* Estilos globales */
+body {
+    background-color: var(--background-color);
+    font-family: 'Space Grotesk', Arial, sans-serif; /* Fuente actualizada */
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Estilos del encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-bottom: px;
+}
+
+/* Estilos del logo (más grande) */
+.logo img {
+    height: 100px; /* Tamaño del logo 100px */
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+}
+
+/* Estilos de navegación */
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  transition: color 0.3s ease; /* Solo transición de color */
+  padding: 5px 0; /* Eliminado el padding lateral que causaba el fondo al hacer clic */
+  outline: none; /* Evita el borde de enfoque predeterminado */
+}
+
+/* Hover: Solo cambia el color del texto */
+.nav a:hover {
+  color: var(--secondary-color);
+}
+
+/* Evitar el recuadro amarillo al hacer clic */
+.nav a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Barra de búsqueda */
+.search-lang {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Contenedor de la barra de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #EDEDED;
+    padding: 10px 15px;
+    border-radius: 30px;
+    width: 220px; /* Mantiene el ancho original */
+    height: 20px;  /* Mantiene la altura original */
+    position: relative;
+}
+
+/* Input de búsqueda */
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 12px; /* Mantiene el tamaño original */
+    flex: 1;
+    padding: 4px 35px 8px 10px;
+    width: 100%;
+    border-radius: 30px;
+    color: var(--text-primary);
+}
+
+/* Placeholder oculto hasta hover */
+.search-input::placeholder {
+    color: transparent; /* Oculto por defecto */
+    transition: color 0.3s ease;
+}
+
+.search-container:hover .search-input::placeholder {
+    color: var(--text-secondary); /* Visible al pasar el cursor */
+}
+
+/* Ícono de la lupa */
+.search-icon {
+    position: absolute;
+    right: 15px;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+}
+
+/* Selector de idioma */
+.lang-switch {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px; /* Mantiene el tamaño original */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Contenedor de los idiomas */
+.lang-container {
+  display: flex;
+  gap: 5px; /* Espacio reducido entre EN y SP */
+  align-items: center;
+}
+
+/* Estilo base para EN y SP */
+.lang-switch {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  color: var(--text-primary);
+  padding: 0 5px; /* Espaciado interno para que no se vean pegados del todo */
+}
+
+/* Hover para EN */
+.lang-switch.en:hover {
+  color: var(--secondary-color); /* Solo cambia EN */
+}
+
+/* Hover para SP */
+.lang-switch.sp:hover {
+  color: var(--secondary-color); /* Solo cambia SP */
+}
+
+/* Carrusel aqui agregar */
+.carousel-container {
+  background-color: var(--background-color);
+  margin-top: 20px;
+  padding: 10px;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto; /* Centra el carrusel */
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+}
+
+.carousel {
+  margin-top: 100px;
+  padding: 20px;
+  width: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.prev-button, .next-button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.prev-button:hover, .next-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo para el botón de WhatsApp */
+.wa-link-container {
+  position: fixed;  /* Fijo en la pantalla */
+  right: 0%;        /* Distancia desde el borde derecho */
+  top: 25%;         /* Posicionado a tres cuartos hacia arriba */
+  transform: translateY(-50%);  /* Centrado verticalmente */
+  z-index: 1000;    /* Asegura que esté por encima de otros elementos */
+}
+
+.wa-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #25D366;  /* Color característico de WhatsApp */
+  color: white;
+  padding: 15px;
+  border-radius: 50px 0 0 50px;  /* Izquierda redondo, derecha cuadrado */
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Sombra para mayor visibilidad */
+}
+
+
+.wa-link:hover {
+  background-color: #128C7E;  /* Color más oscuro al pasar el mouse */
+  transform: scale(1.1);      /* Efecto de zoom suave al hacer hover */
+}
+
+.wa-link i {
+  font-size: 24px;  /* Tamaño del ícono de WhatsApp */
+}
+
+/* Estilo ¿Para quienes somos? */
+.about-us {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Alineado a la izquierda */
+  align-items: center;
+  padding: 130px;
+  background-color: #f9f9f9;
+}
+
+.about-text {
+  max-width: 400px;
+  margin: 20px;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 54px;
+  color: var(--tertiary-color);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.about-text h3 {
+  font-size: 28px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.years {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.plus-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 62px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Estilo Somos mas que una marca, somos parte de tu hojar */
+.about-section {
+  background-color: #f9f9f9;
+  padding: 0;
+  text-align: center;
+}
+
+.section-title {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  color: #000;
+  font-size: 95px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.section-title span {
+  color: var(--secondary-color);
+  display: inline; /* Asegura que no haya salto de línea */
+  margin: 0; /* Elimina márgenes innecesarios */
+}
+
+.video-container {
+  margin: 20px auto;
+  max-width: 90%;
+  padding: 0px;
+  border-radius: 30px;
+}
+
+video {
+  width: 100%;
+  border-radius: 40px;
+}
+
+.orange-strip {
+  background-color: #f7b731;
+  padding: 80px;
+  margin-top: 20px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.info-box {
+  background: white;
+  font-size: 13px;
+  padding: 25px;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.info-box i {
+  font-size: 4em;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.values-list {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.values-list ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.values-list li {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.section-title2 {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  font-size: 95px;
+  font-family: 'Grosso', sans-serif;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Los mejores productos hechos en México */
+.section-title2 span {
+  color: #f7b731;
+  display: inline; /* Asegura que no haya salto de línea */
+  margin: 0; /* Elimina márgenes innecesarios */
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.boton-cobertores, .boton-colchas {
+  width: 200px;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.boton-cobertores {
+  background-color: #262F2E;
+  color: #fff;
+}
+
+.boton-colchas {
+  background-color: #fff;
+  color: #262F2E;
+}
+
+.boton-cobertores:hover, .boton-colchas:hover {
+  opacity: 0.8;
+
+}
+
+.parrafos {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* Conoces nuestras marcas */
+.section-title3 {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  color: #f7b731;
+  font-size: 95px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.contenedor-botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 70px;
+}
+
+.boton-imagen {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 40px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* opacidad inicial */
+  transition: opacity 0.5s; /* transición para cambiar la opacidad */
+  justify-content: center;
+  gap: 40px;
+}
+
+.boton-imagen:hover {
+  opacity: 1; /* opacidad al pasar el cursor */
+}
+
+/* estilos del contacto */
+#formulario-contacto {
+  background-color: var(--background-color);
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin: 40px auto;
+}
+
+#formulario-contacto h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.campo-formulario {
+  margin-bottom: 20px;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.campo-formulario input, .campo-formulario textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #4CAF50;
+}
+
+
+/* estilos del pie de paguina */
+.pie-pagina {
+  background-color: #15191C;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.contenedor-pie-pagina {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-contacto {
+  width: 30%;
+  text-align: left;
+}
+
+.logo-pie-pagina {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.direccion-pie-pagina {
+  width: 30%;
+  text-align: right;
+}
+
+.logo-pie-pagina img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.info-contacto ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-contacto li {
+  margin-bottom: 10px;
+}
