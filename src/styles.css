@@ -184,7 +184,6 @@ body {
   margin-top: 100px;
   padding: 20px;
   width: 100%;
-  background-color: var(--background-color);
   display: flex;
   transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
@@ -306,7 +305,7 @@ body {
 
 /* Estilo Somos mas que una marca, somos parte de tu hojar */
 .about-section {
-  background-color: #f9f9f9;
+  background-color: var(--primary-color);
   padding: 0;
   text-align: center;
 }
@@ -334,6 +333,7 @@ body {
   max-width: 90%;
   padding: 0px;
   border-radius: 30px;
+  margin-bottom: 50px; /* Agregar espacio entre video y mision vision valores */
 }
 
 video {
@@ -341,20 +341,23 @@ video {
   border-radius: 40px;
 }
 
+/* Ajuste de vision, valores, misión */
 .orange-strip {
   background-color: #f7b731;
   padding: 80px;
   margin-top: 20px;
+  margin-bottom: 100px; /* Agrgar espacio entre contenedor y titulo "los mejores productos hechos en mexico" */
 }
 
 .info-container {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: 35px;
 }
 
+/* Ajuste de contenedor */
 .info-box {
-  background: white;
+  background: var(--primary-color);
   font-size: 13px;
   padding: 25px;
   border-radius: 40px;
@@ -367,25 +370,47 @@ video {
 .info-box i {
   font-size: 4em;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+/* Ajuste caption vision, mision, valores */
+.info-box .caption {
+  color: #000;
+  display: inline-block;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-left: 20px;
+}
+
+/* Ajuste cap vision, mision */
+.info-box .cap {
+  padding-left: 20px;
+  padding-right: 30xp;
 }
 
 .values-list {
   display: flex;
   justify-content: left;
-  gap: 10px;
+  gap: 3px;
+  margin-bottom: 0;
 }
 
 .values-list ul {
   list-style: none;
-  padding: 0px;
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 0
 }
 
 .values-list li {
   margin: 5px 0;
-  font-weight: bold;
+  font-weight: normal;
+  margin-bottom: 0;
 }
 
+/* Ajuste de los mejore productos hechos en mexico */
 .section-title2 {
   line-height: 1.1; /* Ajusta este valor para reducir el espacio */
   margin-bottom: 0; /* Elimina cualquier margen inferior */
@@ -402,8 +427,10 @@ video {
   color: #f7b731;
   display: inline; /* Asegura que no haya salto de línea */
   margin: 0; /* Elimina márgenes innecesarios */
+  margin-bottom: 50px;
 }
 
+/* Ajusta de cobertores y colchas */
 .botones {
   display: flex;
   justify-content: center;
@@ -411,6 +438,7 @@ video {
   margin-bottom: 50px;
 }
 
+/* Ajusta de cobertores y colchas */
 .boton-cobertores, .boton-colchas {
   width: 200px;
   border: none;
@@ -448,7 +476,6 @@ video {
 /* Conoces nuestras marcas */
 .section-title3 {
   line-height: 1.1; /* Ajusta este valor para reducir el espacio */
-  margin-bottom: 0; /* Elimina cualquier margen inferior */
   color: #f7b731;
   font-size: 95px;
   font-family: 'Fredoka', sans-serif;
