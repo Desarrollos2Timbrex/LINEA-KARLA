@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 
 @Component({
@@ -8,8 +8,7 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent {
-  //esto no se debe de hacer pero funciona por ahora
+export class BodyComponent implements AfterViewInit {
   images = [
     'assets/images/imagen1.jpg',
     'assets/images/imagen2.jpg',
@@ -28,7 +27,15 @@ export class BodyComponent {
 
   @ViewChild('carousel', { static: false }) carousel!: ElementRef;
 
-  scrollAmount = 300; // Ajusta según el tamaño de cada imagen
+  scrollAmount = 815; // Ajusta según el tamaño de cada imagen
+
+  ngAfterViewInit() {
+    // Asegura que el componente esté completamente inicializado antes de acceder al carousel
+    if (this.carousel) {
+      const container = this.carousel.nativeElement;
+      console.log(container); // Verifica si el carousel se accede correctamente
+    }
+  }
 
   moveCarousel(direction: 'next' | 'prev') {
     if (this.carousel) {

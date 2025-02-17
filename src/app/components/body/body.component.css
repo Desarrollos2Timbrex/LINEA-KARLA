@@ -9,17 +9,22 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 10px;
-  scrollbar-width: none;
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
 }
 
 .carousel-item {
   flex: 0 0 auto;
-  width: 300px; /* Ajusta el tamaño según necesites */
+  width: 300px; /* Mantiene el tamaño */
 }
 
 .carousel img {
   width: 100%;
   border-radius: 10px;
+  object-fit: cover; /* Asegura que las imágenes se ajusten correctamente */
 }
 
 .carousel-controls {
@@ -29,6 +34,7 @@
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  pointer-events: none; /* Evita interferencia con el contenido */
 }
 
 button {
@@ -38,6 +44,8 @@ button {
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
+  pointer-events: auto; /* Permite la interacción con los botones */
+  transition: background 0.3s ease;
 }
 
 button:hover {
