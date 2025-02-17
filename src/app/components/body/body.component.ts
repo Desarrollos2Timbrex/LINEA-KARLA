@@ -18,8 +18,6 @@ export class BodyComponent implements AfterViewInit {
     'assets/images/imagen6.jpg',
     'assets/images/imagen7.jpg',
     'assets/images/imagen8.jpg',
-    'assets/images/imagen9.jpg',
-    'assets/images/imagen10.jpg',
     'assets/images/imagen11.jpg',
     'assets/images/imagen12.jpg',
     'assets/images/imagen13.jpg'
@@ -33,7 +31,7 @@ export class BodyComponent implements AfterViewInit {
     // Asegura que el componente esté completamente inicializado antes de acceder al carousel
     if (this.carousel) {
       const container = this.carousel.nativeElement;
-      console.log(container); // Verifica si el carousel se accede correctamente
+
     }
   }
 
