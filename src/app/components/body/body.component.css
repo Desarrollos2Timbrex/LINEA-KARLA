@@ -1,3 +1,45 @@
-.container{
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
+  scrollbar-width: none;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px; /* Ajusta el tamaño según necesites */
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
