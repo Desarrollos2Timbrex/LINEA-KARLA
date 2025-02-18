@@ -1,0 +1,170 @@
+/* Importar fuente Grotesque */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grosso&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables de color */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #E09F19;
+    --tertiary-color: #F3C00F;
+    --text-primary: #5C3F0B;
+    --text-secondary: #6B6B6B;
+    --background-color: #F5F5F5;
+    --hover-bg: rgba(224, 159, 25, 0.2); /* Sombreado claro para hover */
+}
+
+/* Estilos globales */
+body {
+    background-color: var(--background-color);
+    font-family: 'Space Grotesk', Arial, sans-serif; /* Fuente actualizada */
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Estilos del encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-bottom: px;
+}
+
+/* Estilos del logo (más grande) */
+.logo img {
+    height: 100px; /* Tamaño del logo 100px */
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+}
+
+/* Estilos de navegación */
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  transition: color 0.3s ease; /* Solo transición de color */
+  padding: 5px 0; /* Eliminado el padding lateral que causaba el fondo al hacer clic */
+  outline: none; /* Evita el borde de enfoque predeterminado */
+}
+
+/* Hover: Solo cambia el color del texto */
+.nav a:hover {
+  color: var(--secondary-color);
+}
+
+/* Evitar el recuadro amarillo al hacer clic */
+.nav a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Barra de búsqueda */
+.search-lang {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Contenedor de la barra de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #EDEDED;
+    padding: 10px 15px;
+    border-radius: 30px;
+    width: 220px; /* Mantiene el ancho original */
+    height: 20px;  /* Mantiene la altura original */
+    position: relative;
+}
+
+/* Input de búsqueda */
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 12px; /* Mantiene el tamaño original */
+    flex: 1;
+    padding: 4px 35px 8px 10px;
+    width: 100%;
+    border-radius: 30px;
+    color: var(--text-primary);
+}
+
+/* Placeholder oculto hasta hover */
+.search-input::placeholder {
+    color: transparent; /* Oculto por defecto */
+    transition: color 0.3s ease;
+}
+
+.search-container:hover .search-input::placeholder {
+    color: var(--text-secondary); /* Visible al pasar el cursor */
+}
+
+/* Ícono de la lupa */
+.search-icon {
+    position: absolute;
+    right: 15px;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+}
+
+/* Selector de idioma */
+.lang-switch {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px; /* Mantiene el tamaño original */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Contenedor de los idiomas */
+.lang-container {
+  display: flex;
+  gap: 5px; /* Espacio reducido entre EN y SP */
+  align-items: center;
+}
+
+/* Estilo base para EN y SP */
+.lang-switch {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  color: var(--text-primary);
+  padding: 0 5px; /* Espaciado interno para que no se vean pegados del todo */
+}
+
+/* Hover para EN */
+.lang-switch.en:hover {
+  color: var(--secondary-color); /* Solo cambia EN */
+}
+
+/* Hover para SP */
+.lang-switch.sp:hover {
+  color: var(--secondary-color); /* Solo cambia SP */
+}

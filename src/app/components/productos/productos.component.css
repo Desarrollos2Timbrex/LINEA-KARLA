@@ -1,0 +1,169 @@
+/* Importar fuente Grotesque */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grosso&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables de color */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #E09F19;
+    --tertiary-color: #F3C00F;
+    --text-primary: #5C3F0B;
+    --text-secondary: #6B6B6B;
+    --background-color: #F5F5F5;
+    --hover-bg: rgba(224, 159, 25, 0.2); /* Sombreado claro para hover */
+}
+
+/* Ajuste de los mejore productos hechos en mexico */
+.about-section {
+  background-color: var(--primary-color);
+  padding: 0;
+  text-align: center;
+}
+
+.section-title2 {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  color: #000;
+  font-size: 95px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title2 span {
+  color: var(--secondary-color);
+  display: inline; /* Asegura que no haya salto de línea */
+  margin: 0; /* Elimina márgenes innecesarios */
+}
+
+/* Ajusta de cobertores y colchas */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Ajusta de cobertores y colchas */
+.boton-cobertores, .boton-colchas {
+  width: 200px;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.boton-cobertores {
+  background-color: #262F2E;
+  color: #fff;
+}
+
+.boton-colchas {
+  background-color: #fff;
+  color: #262F2E;
+}
+
+.boton-cobertores:hover, .boton-colchas:hover {
+  opacity: 0.8;
+
+}
+
+.parrafos {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* Conoces nuestras marcas */
+.titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 4rem; /* Tamaño grande */
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  margin: 0;
+  line-height: 1; /* Reduce el espacio entre líneas */
+  margin: 0; /* Elimina márgenes extra */
+}
+
+.cursiva {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 7rem;
+  font-weight: normal;
+  color: var(--tertiary-color);
+  align-self: flex-start; /* Alinea a la izquierda */
+  margin-left: 420px; /* Agrega margen izquierdo */
+}
+
+.negrita {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: var(--tertiary-color);
+  display: block;
+}
+
+
+/* Botones */
+.contenedor-botones {
+  display: flex;
+  justify-content: center; /* Centrar botones */
+  align-items: center;
+  gap: 100px; /* Espaciado entre botones */
+  margin-bottom: 70px;
+}
+
+.boton-imagen {
+  display: flex;
+  flex-direction: column; /* Alinear imagen y texto en columna */
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  border: none;
+  border-radius: 40px;
+  background-color: #ddd; /* Color de fondo */
+  opacity: 0.5; /* Opacidad inicial */
+  transition: opacity 0.5s ease-in-out, transform 0.2s;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+}
+
+/* Imagen dentro del botón */
+.boton-imagen img {
+  width: auto;
+  height: 20px; /* Tamaño de la imagen */
+  margin-bottom: 5px; /* Espacio entre imagen y texto */
+}
+
+/* Al pasar el mouse */
+.boton-imagen:hover {
+  opacity: 1;
+}
+
+/* Al presionar */
+.boton-imagen:active {
+  opacity: 1;
+  transform: scale(0.98); /* Pequeño efecto de presión */
+}
+
+

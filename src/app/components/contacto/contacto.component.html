@@ -1,45 +1,36 @@
  <!-- Agregamos el formulario de contacto -->
- <form id="formulario-contacto"  method="post">
-  <h2>Contactanos</h2>
-  <h3>Si requieres de alguna cotización u información adicional</h3>
+ <div id="contacto" class="container-formulario">
+  <div class="formulario">
+    <h2 class="contacto">Contáctanos</h2>
+    <p class="frase">Si requieres de alguna cotización u información adicional</p>
+    <form class="en" action="procesar_formulario.php" method="POST">
+      <!-- Campos Nombre y Apellido -->
+      <input type="text" name="nombre" placeholder="NOMBRE" required>
+      <input type="text" name="apellido" placeholder="APELLIDO" required>
 
-  <!-- Agregamos el nombre -->
-  <div class="campo-formulario">
-    <label for="name">NOMBRE</label>
-    <input type="text" id="nombre" name="nombre" required>
+      <!-- Campos Ciudad y CP en la misma fila -->
+      <div class="ciudad-cp">
+        <input type="text" name="ciudad" placeholder="CIUDAD" required>
+        <input type="text" name="cp" placeholder="CP" required>
+      </div>
+
+      <!-- Campos Teléfono y Email -->
+      <input type="tel" name="telefono" placeholder="TELEFONO" required>
+      <input type="email" name="email" placeholder="E-MAIL" required>
+
+      <!-- Campo "Dinos en qué te podemos ayudar" -->
+      <textarea name="mensaje" placeholder="Escribe aquí lo que necesitas..." required></textarea>
+
+      <!-- Radio botón para "No soy un robot" -->
+      <div class="robot-check">
+        <input type="radio" name="robot" required>
+        <label>No soy un robot</label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
   </div>
-
-  <!-- Agregamos el apellido -->
-   <div class="campo-formulario">
-    <label for="apellido">APELLIDO</label>
-    <input type="text" id="apellido" name="apellido" required>
-   </div>
-
-   <!-- Agregamos la ciudad -->
-    <div class="campo-formulario">
-      <label for="ciudad">CIUDAD</label>
-      <input type="text" id="ciudad" name="ciudad" required>
-    </div>
-
-    <!-- Agregamos el telefono -->
-     <div class="campo-formulario">
-      <label for="telefono">TELEFONO</label>
-      <input type="tel" id="telefono" name="telefono" required>
-     </div>
-
-  <!-- Agregamos el correo -->
-  <div class="campo-formulario">
-    <label for="email">E-MAIL</label>
-    <input type="email" id="email" name="email" required>
+  <div class="mapa">
+    <iframe src="https://www.google.com/maps?q=Zaragoza+1,+Guadalupe+Ixcotla,+90810+Santa+Ana+Chiautempan,+Tlax.&output=embed" allowfullscreen></iframe>
   </div>
-
-  <!-- Agregamos el mensaje -->
-   <div class="campo-formulario">
-    <label for="mensaje">Dinos en que te podemos ayudar</label>
-    <textarea id="mensaje" name="mensaje" required></textarea>
-   </div>
-
-   <!-- Agregamos el boton para enviar -->
-   <button type="submit">Enviar</button>
- </form>
-
+</div>

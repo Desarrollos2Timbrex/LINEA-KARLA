@@ -1,30 +1,51 @@
+/* Importar fuente Grotesque */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grosso&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables de color */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #E09F19;
+    --tertiary-color: #F3C00F;
+    --text-primary: #5C3F0B;
+    --text-secondary: #6B6B6B;
+    --background-color: #F5F5F5;
+    --hover-bg: rgba(224, 159, 25, 0.2); /* Sombreado claro para hover */
+}
+
+/* Carrusel aqui agregar */
 .carousel-container {
+  margin-top: 20px;
+  padding: 10px;
   position: relative;
-  width: 100%;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto; /* Centra el carrusel */
   overflow: hidden;
+  border: none;
+  box-shadow: none;
 }
 
 .carousel {
+  margin-top: 100px;
+  padding: 20px;
+  width: 100%;
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 10px;
-  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
-}
-
-.carousel::-webkit-scrollbar {
-  display: none; /* Oculta la barra de desplazamiento en Chrome y Safari */
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .carousel-item {
-  flex: 0 0 auto;
-  width: 300px; /* Mantiene el tamaño */
+  min-width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.carousel img {
+.carousel-item img {
   width: 100%;
-  border-radius: 10px;
-  object-fit: cover; /* Asegura que las imágenes se ajusten correctamente */
+  height: auto;
+  border-radius: 20px;
 }
 
 .carousel-controls {
@@ -34,20 +55,275 @@
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
-  pointer-events: none; /* Evita interferencia con el contenido */
+  padding: 0 10px;
 }
 
-button {
+.prev-button, .next-button {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   padding: 10px;
-  cursor: pointer;
   border-radius: 50%;
-  pointer-events: auto; /* Permite la interacción con los botones */
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
-button:hover {
+.prev-button:hover, .next-button:hover {
   background: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo para el botón de WhatsApp */
+.wa-link-container {
+  position: fixed;  /* Fijo en la pantalla */
+  right: 0%;        /* Distancia desde el borde derecho */
+  top: 25%;         /* Posicionado a tres cuartos hacia arriba */
+  transform: translateY(-50%);  /* Centrado verticalmente */
+  z-index: 1000;    /* Asegura que esté por encima de otros elementos */
+}
+
+.wa-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #25D366;  /* Color característico de WhatsApp */
+  color: white;
+  padding: 15px;
+  border-radius: 50px 0 0 50px;  /* Izquierda redondo, derecha cuadrado */
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Sombra para mayor visibilidad */
+}
+
+
+.wa-link:hover {
+  background-color: #128C7E;  /* Color más oscuro al pasar el mouse */
+  transform: scale(1.1);      /* Efecto de zoom suave al hacer hover */
+}
+
+.wa-link i {
+  font-size: 24px;  /* Tamaño del ícono de WhatsApp */
+}
+
+/* Contenedor principal */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 130px;
+}
+
+/* Texto informativo */
+.about-text {
+  max-width: 400px;
+  margin: 20px;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 54px;
+  color: var(--tertiary-color);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+.about-text h3 {
+  font-size: 28px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Número giratorio tipo calendario */
+.years-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+}
+
+.rotating-number {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  animation: rollNumbers 2s infinite ease-in-out;
+}
+
+@keyframes rollNumbers {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-40px); content: "30"; }
+  40% { transform: translateY(-80px); content: "31"; }
+  60% { transform: translateY(-120px); content: "32"; }
+  100% { transform: translateY(-120px); }
+}
+
+/* Botón de expansión */
+.expand-btn {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.expand-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Contenedor de imágenes */
+.about-images {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.small-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.large-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 15px;
+}
+
+/* Expansión de imagen */
+.image-wrapper.active .small-image {
+  width: 220px;
+  height: 220px;
+}
+
+
+/* Estilo Somos mas que una marca, somos parte de tu hojar */
+.about-section {
+  background-color: var(--primary-color);
+  padding: 0;
+  text-align: center;
+}
+
+.section-title {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  color: #000;
+  font-size: 95px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: var(--secondary-color);
+  display: inline; /* Asegura que no haya salto de línea */
+  margin: 0; /* Elimina márgenes innecesarios */
+}
+
+.video-container {
+  margin: 20px auto;
+  max-width: 90%;
+  padding: 0px;
+  border-radius: 30px;
+  margin-bottom: 50px; /* Agregar espacio entre video y mision vision valores */
+}
+
+video {
+  width: 100%;
+  border-radius: 40px;
+}
+
+/* Ajuste de vision, valores, misión */
+.orange-strip {
+  background-color: #f7b731;
+  padding: 80px;
+  margin-top: 20px;
+  margin-bottom: 100px; /* Agrgar espacio entre contenedor y titulo "los mejores productos hechos en mexico" */
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+/* Ajuste de contenedor */
+.info-box {
+  background: var(--primary-color);
+  font-size: 13px;
+  padding: 25px;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.info-box i {
+  font-size: 4em;
+  color: black;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+/* Ajuste caption vision, mision, valores */
+.info-box .caption {
+  color: #000;
+  display: inline-block;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-left: 20px;
+}
+
+/* Ajuste cap vision, mision */
+.info-box .cap {
+  padding-left: 20px;
+  padding-right: 30xp;
+}
+
+.values-list {
+  display: flex;
+  justify-content: left;
+  gap: 3px;
+  margin-bottom: 0;
+}
+
+.values-list ul {
+  list-style: none;
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 0
+}
+
+.values-list li {
+  margin: 5px 0;
+  font-weight: normal;
+  margin-bottom: 0;
 }

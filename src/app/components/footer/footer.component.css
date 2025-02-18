@@ -1,0 +1,46 @@
+/* estilos del pie de paguina */
+.pie-pagina {
+  background-color: #15191C;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.contenedor-pie-pagina {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-contacto {
+  width: 30%;
+  text-align: left;
+}
+
+.logo-pie-pagina {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.direccion-pie-pagina {
+  width: 30%;
+  text-align: right;
+}
+
+.logo-pie-pagina img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.info-contacto ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-contacto li {
+  margin-bottom: 10px;
+}
