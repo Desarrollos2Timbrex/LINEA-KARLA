@@ -14,7 +14,7 @@ export class LoginComponent {
 
   usuario = {
     usuario: '',
-    contraseña: ''
+    password: ''
   };
 
   mensaje: string = '';

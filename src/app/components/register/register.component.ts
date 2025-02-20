@@ -14,7 +14,7 @@ export class RegisterComponent {
 
   usuario = {
     usuario: '',
-    contraseña: '',
+    password: '',
     apellido_paterno: '',
     apellido_materno: '',
     correo: '',
