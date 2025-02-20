@@ -14,7 +14,7 @@ export class LoginComponent {
 
   usuario = {
     usuario: '',
-    password: ''
+    contrasena: ''
   };
 
   mensaje: string = '';
@@ -23,14 +23,8 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.usuario).subscribe(
-      res => {
-        this.mensaje = '✅ Logueado con éxito!';
-        console.log(res);
-      },
-      err => {
-        this.mensaje = '❌ Error al iniciar sesión.';
-        console.error(err);
-      }
+      res => this.mensaje = '✅ Logueado con éxito!',
+      err => this.mensaje = '❌ Error al iniciar sesión.'
     );
   }
 }

@@ -6,8 +6,7 @@ import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(), // Habilitar HTTP
-    provideRouter(routes) // Habilitar Rutas
+    provideHttpClient(),
+    provideRouter(routes)
   ]
 });
-

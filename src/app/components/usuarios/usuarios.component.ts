@@ -15,7 +15,7 @@ export class UsuariosComponent implements OnInit {
 
   nuevoUsuario = {
     Usuario: '',
-    Contraseña: '',
+    Contrasena: '',
     Apellido_paterno: '',
     Apellido_materno: '',
     Correo: '',
@@ -42,7 +42,7 @@ export class UsuariosComponent implements OnInit {
       this.cargarUsuarios();
       this.nuevoUsuario = {
         Usuario: '',
-        Contraseña: '',
+        Contrasena: '',
         Apellido_paterno: '',
         Apellido_materno: '',
         Correo: '',

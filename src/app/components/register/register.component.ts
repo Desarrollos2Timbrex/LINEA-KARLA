@@ -14,7 +14,7 @@ export class RegisterComponent {
 
   usuario = {
     usuario: '',
-    password: '',
+    contrasena: '',
     apellido_paterno: '',
     apellido_materno: '',
     correo: '',
@@ -28,15 +28,8 @@ export class RegisterComponent {
 
   register() {
     this.authService.register(this.usuario).subscribe(
-      res => {
-        this.mensaje = '✅ Registro exitoso!';
-        console.log(res);
-      },
-      err => {
-        this.mensaje = '❌ Error al registrar.';
-        console.error(err);
-      }
+      res => this.mensaje = '✅ Registro exitoso!',
+      err => this.mensaje = '❌ Error al registrar.'
     );
   }
 }
-
