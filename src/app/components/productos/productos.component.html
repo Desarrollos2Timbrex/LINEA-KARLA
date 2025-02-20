@@ -1,19 +1,57 @@
-  <!-- Los mejores productos hechos en mexico -->
-  <section>
-    <h2 class="section-title2">Los mejores <span>productos <br>hechos en México</span></h2>
+<!-- Los mejores productos hechos en México -->
+<section class="about-section">
+  <h2 class="section-title2">
+    <span class="linea1">
+      <span class="titulo-negro">Los mejores</span>
+      <span class="titulo-amarillo"> productos</span>
+    </span>
+    <br>
+    <span class="linea2 titulo-amarillo">hechos en México</span>
+  </h2>
 
-    <div class="botones">
-      <button class="boton-cobertores" id="cobertores">Cobertores</button>
-      <button class="boton-colchas" id="colchas">Colchas</button>
+  <div class="botones">
+    <button
+      class="boton-toggle"
+      [ngClass]="{'activo': esActivo('cobertores')}"
+      (click)="cambiarVista('cobertores')">Cobertores</button>
+
+    <button
+      class="boton-toggle"
+      [ngClass]="{'activo': esActivo('colchas')}"
+      (click)="cambiarVista('colchas')">Colchas</button>
+  </div>
+
+  <!-- Productos Cobertores -->
+  <div class="productos" *ngIf="vistaActual === 'cobertores'">
+    <div class="tarjeta-producto">
+      <img src="/assets/cobertores/blanco.jpg" alt="Cobertor Blanco">
+      <h3>COBERTOR BLANCO</h3>
+      <p>Calidez suave para tu hogar en invierno.</p>
     </div>
-
-    <div class="parrafos">
-      <p id="parrafo-cobertores" class="oculto">Este es el párrafo de cobertores.</p>
-      <p id="parrafo-colchas" class="oculto">Este es el párrafo de colchas.</p>
+    <div class="tarjeta-producto">
+      <img src="/assets/cobertores/azul.jpg" alt="Cobertor Azul">
+      <h3>COBERTOR AZUL</h3>
+      <p>Un toque elegante y fresco.</p>
     </div>
-    </section>
+  </div>
 
-    <!-- Conoce nuestras marcas -->
+  <!-- Productos Colchas -->
+  <div class="productos" *ngIf="vistaActual === 'colchas'">
+    <div class="tarjeta-producto">
+      <img src="/assets/colchas/rosa.jpg" alt="Colcha Rosa">
+      <h3>COLCHA ROSA</h3>
+      <p>Estilo y comodidad para tu habitación.</p>
+    </div>
+    <div class="tarjeta-producto">
+      <img src="/assets/colchas/gris.jpg" alt="Colcha Gris">
+      <h3>COLCHA GRIS</h3>
+      <p>Minimalismo y elegancia combinados.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Conoce nuestras marcas -->
 <section>
   <div class="titulo">
     <h2><span class="cursiva">Conoce</span><span class="negrita"> nuestras marcas</span></h2>
@@ -21,11 +59,10 @@
 
   <div class="contenedor-botones">
     <button class="boton-imagen" id="boton-1">
-      <img src="/assets/imagenes/logo.png" alt="Linea karla">
+      <img src="/assets/imagenes/logo.png" alt="Linea Karla">
     </button>
     <button class="boton-imagen" id="boton-2">
-      <img src="/assets/imagenes/imagenb2.png" alt="linea karla">
+      <img src="/assets/imagenes/imagenb2.png" alt="Cobertores Santa Lucia">
     </button>
   </div>
-
-  </section>
+</section>

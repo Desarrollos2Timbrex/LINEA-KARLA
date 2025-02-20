@@ -1,9 +1,12 @@
-/* estilos del pie de paguina */
+/* Estilos del pie de página */
 .pie-pagina {
   background-color: #15191C;
   color: #fff;
-  padding: 20px;
+  padding: 40px 20px 20px; /* Margen superior agregado */
   text-align: center;
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+  font-size: 1rem; /* Tamaño base de fuente */
 }
 
 .contenedor-pie-pagina {
@@ -22,6 +25,7 @@
 .logo-pie-pagina {
   width: 30%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .direccion-pie-pagina {
@@ -30,8 +34,8 @@
 }
 
 .logo-pie-pagina img {
-  width: 100px;
-  height: 100px;
+  width: 130px; /* Imagen más grande */
+  height: 130px;
   border-radius: 50%;
 }
 
@@ -43,4 +47,49 @@
 
 .info-contacto li {
   margin-bottom: 10px;
+}
+
+/* Escalado responsivo con reducción de texto y elementos */
+@media (max-width: 1200px) {
+  .pie-pagina {
+    transform: scale(0.9);
+    font-size: 0.9rem;
+  }
+  .logo-pie-pagina img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 992px) {
+  .pie-pagina {
+    transform: scale(0.8);
+    font-size: 0.85rem;
+  }
+  .logo-pie-pagina img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pie-pagina {
+    transform: scale(0.7);
+    font-size: 0.8rem;
+  }
+  .logo-pie-pagina img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pie-pagina {
+    transform: scale(0.6);
+    font-size: 0.75rem;
+  }
+  .logo-pie-pagina img {
+    width: 90px;
+    height: 90px;
+  }
 }

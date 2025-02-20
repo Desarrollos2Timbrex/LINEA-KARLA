@@ -1,0 +1,8 @@
+<h2>Lista de Usuarios</h2>
+
+<ul>
+  <li *ngFor="let usuario of usuarios">
+    {{ usuario.Usuario }} - {{ usuario.Correo }} - {{ usuario.Apellido_paterno }} {{ usuario.Apellido_materno }} - Tel: {{ usuario.Numero }} - Activo: {{ usuario.Activo ? 'Sí' : 'No' }}
+  </li>
+</ul>
+

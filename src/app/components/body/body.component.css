@@ -1,6 +1,8 @@
 /* Importar fuente Grotesque */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Grosso&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,30 +18,38 @@ html {
     --hover-bg: rgba(224, 159, 25, 0.2); /* Sombreado claro para hover */
 }
 
-/* Carrusel aqui agregar */
+/* Carrusel ajustado con efecto y navegación */
 .carousel-container {
-  margin-top: 20px;
+  margin-top: 200px; /* Margen superior para evitar obstrucción con el header */
   padding: 10px;
   position: relative;
   width: 80%;
   max-width: 800px;
-  margin: 50px auto; /* Centra el carrusel */
+  margin: 200px auto 50px; /* Margen superior ajustado */
   overflow: hidden;
   border: none;
   box-shadow: none;
 }
 
 .carousel {
-  margin-top: 100px;
-  padding: 20px;
-  width: 100%;
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
-  min-width: 100%;
-  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  min-width: 60%;
+  margin: 0 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
 }
 
 .carousel-item img {
@@ -48,14 +58,15 @@ html {
   border-radius: 20px;
 }
 
+/* Controles del carrusel debajo del carrusel con indicadores en el medio */
 .carousel-controls {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  margin-top: 20px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .prev-button, .next-button {
@@ -70,6 +81,60 @@ html {
 
 .prev-button:hover, .next-button:hover {
   background: rgba(0, 0, 0, 0.8);
+}
+
+/* Indicadores del carrusel entre las flechas */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-controls .carousel-indicators {
+  order: 1;
+}
+
+.carousel-controls .prev-button {
+  order: 0;
+}
+
+.carousel-controls .next-button {
+  order: 2;
+}
+
+.carousel-indicators div {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators div.active {
+  background-color: #6c63ff;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .carousel-item {
+    min-width: 80%;
+  }
+
+  .prev-button, .next-button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    min-width: 100%;
+  }
+
+  .prev-button, .next-button {
+    padding: 6px;
+  }
 }
 
 /* Estilo para el botón de WhatsApp */
@@ -104,128 +169,169 @@ html {
   font-size: 24px;  /* Tamaño del ícono de WhatsApp */
 }
 
-/* Contenedor principal */
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 130px;
+/* Estilos Generales de quien es karla */
+
+/* Estilos Generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-/* Texto informativo */
+/* Contenedor Principal */
+.about-container {
+  display: flex;
+  justify-content: center; /* Centrar los elementos */
+  align-items: center;
+  padding: 50px;
+  gap: 20px; /* Reducir espacio entre texto e imágenes */
+  flex-wrap: wrap;
+}
+
+/* Texto */
 .about-text {
-  max-width: 400px;
-  margin: 20px;
+  max-width: 40%;
   text-align: left;
 }
 
 .about-text h2 {
-  font-size: 54px;
-  color: var(--tertiary-color);
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
+  font-size: 48px;
+  color: #e09f19;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-text .years-container {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Número giratorio (tipo rueda) */
+.rotating-number {
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 1s ease-in-out;
+  cursor: pointer;
+}
+
+.rotating-number:hover {
+  transform: rotate(720deg); /* Giro como rueda */
+}
+
+/* Botón + */
+.plus-icon {
+  background: none;
+  border: none;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .about-text h3 {
-  font-size: 28px;
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-/* Número giratorio tipo calendario */
-.years-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Fredoka', sans-serif;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Imágenes */
+.about-images {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.image-wrapper {
   position: relative;
   overflow: hidden;
-  height: 40px;
+  border-radius: 15px;
+  transition: transform 0.5s ease-in-out;
 }
 
-.rotating-number {
-  display: inline-block;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  width: 50px;
-  background-color: var(--primary-color);
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  animation: rollNumbers 2s infinite ease-in-out;
-}
-
-@keyframes rollNumbers {
-  0% { transform: translateY(0); }
-  20% { transform: translateY(-40px); content: "30"; }
-  40% { transform: translateY(-80px); content: "31"; }
-  60% { transform: translateY(-120px); content: "32"; }
-  100% { transform: translateY(-120px); }
+.small-image, .large-image {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.5s ease-in-out;
 }
 
 /* Botón de expansión */
 .expand-btn {
   position: absolute;
-  top: 50%;
-  left: -15px;
-  transform: translateY(-50%);
-  background-color: var(--secondary-color);
+  top: -10px;
+  left: -10px;
+  background-color: #e09f19;
   border: none;
-  border-radius: 50%;
+  border-radius: 0 0 40% 0;
   width: 40px;
   height: 40px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.expand-btn:hover {
+.expand-btn i {
+  color: #fff;
+  font-size: 20px;
+  transform: rotate(45deg); /* Corrige la flecha */
+}
+
+/* Efecto desplegable al pasar el cursor */
+.image-wrapper:hover .small-image {
   transform: scale(1.1);
 }
 
-/* Contenedor de imágenes */
-.about-images {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.image-wrapper:hover .expand-btn {
+  transform: translate(10px, 10px); /* Despliega la flecha */
 }
 
-.image-wrapper {
-  position: relative;
+/* Efecto al hacer clic usando clase expandida */
+.image-wrapper.expanded .small-image {
+  transform: scale(1.3);
+  z-index: 1;
 }
 
-.small-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 15px;
-  transition: all 0.5s ease;
+/* Responsividad básica */
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text {
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .about-images {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.large-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 15px;
-}
 
-/* Expansión de imagen */
-.image-wrapper.active .small-image {
-  width: 220px;
-  height: 220px;
-}
-
-
-/* Estilo Somos mas que una marca, somos parte de tu hojar */
+/* Estilo Somos mas que una marca, somos parte de tu hogar */
 .about-section {
   background-color: var(--primary-color);
   padding: 0;
   text-align: center;
+  transform-origin: top left;
+  transition: transform 0.3s ease;
 }
 
 .section-title {
@@ -235,9 +341,9 @@ html {
   font-size: 95px;
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
-  color: #000;
   text-align: center;
   margin-bottom: 50px;
+  transition: font-size 0.3s ease;
 }
 
 .section-title span {
@@ -245,6 +351,44 @@ html {
   display: inline; /* Asegura que no haya salto de línea */
   margin: 0; /* Elimina márgenes innecesarios */
 }
+
+/* Escalado responsivo */
+@media (max-width: 1200px) {
+  .about-section {
+    transform: scale(0.9);
+  }
+  .section-title {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    transform: scale(0.8);
+  }
+  .section-title {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    transform: scale(0.7);
+  }
+  .section-title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    transform: scale(0.6);
+  }
+  .section-title {
+    font-size: 35px;
+  }
+}
+
 
 .video-container {
   margin: 20px auto;
@@ -259,18 +403,85 @@ video {
   border-radius: 40px;
 }
 
-/* Ajuste de vision, valores, misión */
+/* Estilo Somos mas que una marca, somos parte de tu hogar */
+.about-section {
+  background-color: var(--primary-color);
+  padding: 0;
+  text-align: center;
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.section-title {
+  line-height: 1.1; /* Ajusta este valor para reducir el espacio */
+  margin-bottom: 0; /* Elimina cualquier margen inferior */
+  color: #000;
+  font-size: 95px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  transition: font-size 0.3s ease;
+}
+
+.section-title span {
+  color: var(--secondary-color);
+  display: inline; /* Asegura que no haya salto de línea */
+  margin: 0; /* Elimina márgenes innecesarios */
+}
+
+/* Escalado responsivo */
+@media (max-width: 1200px) {
+  .about-section {
+    transform: scale(0.9);
+  }
+  .section-title {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    transform: scale(0.8);
+  }
+  .section-title {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    transform: scale(0.7);
+  }
+  .section-title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    transform: scale(0.6);
+  }
+  .section-title {
+    font-size: 35px;
+  }
+}
+
+/* Ajuste de visión, valores, misión */
 .orange-strip {
   background-color: #f7b731;
   padding: 80px;
   margin-top: 20px;
-  margin-bottom: 100px; /* Agrgar espacio entre contenedor y titulo "los mejores productos hechos en mexico" */
+  margin-bottom: 100px; /* Agrega espacio entre contenedor y título */
+  width: 100%; /* Asegura que siempre abarque el ancho completo */
+  box-sizing: border-box;
 }
 
 .info-container {
   display: flex;
   justify-content: space-between;
   gap: 35px;
+  flex-wrap: nowrap;
 }
 
 /* Ajuste de contenedor */
@@ -283,6 +494,7 @@ video {
   flex: 1;
   text-align: left;
   color: var(--text-secondary);
+  transition: transform 0.3s ease;
 }
 
 .info-box i {
@@ -292,7 +504,7 @@ video {
   padding-left: 20px;
 }
 
-/* Ajuste caption vision, mision, valores */
+/* Ajuste caption visión, misión, valores */
 .info-box .caption {
   color: #000;
   display: inline-block;
@@ -302,10 +514,10 @@ video {
   padding-left: 20px;
 }
 
-/* Ajuste cap vision, mision */
+/* Ajuste cap visión, misión */
 .info-box .cap {
   padding-left: 20px;
-  padding-right: 30xp;
+  padding-right: 30px;
 }
 
 .values-list {
@@ -319,11 +531,36 @@ video {
   list-style: none;
   padding: 10px;
   padding-left: 20px;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .values-list li {
   margin: 5px 0;
   font-weight: normal;
   margin-bottom: 0;
+}
+
+/* Escalado responsivo para .info-container */
+@media (max-width: 1200px) {
+  .info-container {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 992px) {
+  .info-container {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .info-container {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 576px) {
+  .info-container {
+    transform: scale(0.6);
+  }
 }

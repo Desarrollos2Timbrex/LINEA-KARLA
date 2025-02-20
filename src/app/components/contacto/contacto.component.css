@@ -1,94 +1,135 @@
 /* Estilos generales */
 .container-formulario {
   display: flex;
-  background: var(--primary-color);
+  justify-content: center; /* Centrar el formulario horizontalmente */
+  align-items: center; /* Centrar verticalmente si es necesario */
+  background: #f5f5f5;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
   margin-bottom: 80px;
+  transform-origin: top left;
+  transition: transform 0.3s ease;
 }
 
+/* Escalado responsivo */
+@media (max-width: 1200px) {
+  .container-formulario {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 992px) {
+  .container-formulario {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .container-formulario {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 576px) {
+  .container-formulario {
+    transform: scale(0.6);
+  }
+}
+
+/* Estilo del formulario */
 .formulario {
   width: 50%;
   padding: 20px;
-  margin-bottom: 3px; /* Agregar margen en la parte inferior para separar el mapa */
+  box-sizing: border-box;
 }
 
 h2.contacto {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 p.frase {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
   margin-bottom: 20px;
 }
 
-/* Campos de formulario */
+/* Campos del formulario */
 form input, form textarea {
   width: 100%;
   padding: 10px;
-  margin: 5px 0;
+  margin: 10px 0;
   font-size: 14px;
   border: none;
-  border-bottom: 2px solid #ccc; /* Solo borde inferior */
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background: transparent;
 }
 
-/* Área de texto con altura ajustada */
 form textarea {
-  height: 20px; /* Ajusta la altura del textarea */
+  height: 100px;
   resize: none;
-}
-
-button {
-  background-color: #a0aec0;
-  border: none;
-  padding: 10px;
-  width: 100%;
+  border: 1px dashed #ccc;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+  padding: 10px;
 }
 
-/* Agrupar los campos de Ciudad y CP en la misma fila */
-.formulario .ciudad-cp {
+/* Agrupar Ciudad y CP */
+.ciudad-cp {
   display: flex;
   gap: 20px;
 }
 
-.formulario .ciudad-cp input {
-  width: 48%; /* Hace que los campos se alineen de manera horizontal */
+.ciudad-cp input {
+  width: 48%;
 }
 
-/* Estilo para el radio botón cuadrado */
-form .robot-check {
+/* Estilo para el checkbox */
+.robot-check {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
-form .robot-check input[type="radio"] {
+.robot-check input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: white;
 }
 
+/* Botón de Enviar */
+button {
+  background-color: #a0aec0;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #718096;
+}
+
+/* Mapa */
 .mapa {
-  width: 45%;
+  width: 50%;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .mapa iframe {
   width: 100%;
   height: 100%;
+  min-height: 500px;
   border-radius: 10px;
   border: none;
 }
