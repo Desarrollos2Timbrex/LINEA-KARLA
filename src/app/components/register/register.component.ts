@@ -27,9 +27,9 @@ export class RegisterComponent {
   constructor(private authService: AuthService) {}
 
   register() {
-    this.authService.register(this.usuario).subscribe(
-      res => this.mensaje = '✅ Registro exitoso!',
-      err => this.mensaje = '❌ Error al registrar.'
-    );
+    this.authService.register(this.usuario).subscribe({
+      next: () => this.mensaje = '✅ Registro exitoso!',
+      error: () => this.mensaje = '❌ Error al registrar usuario.'
+    });
   }
 }

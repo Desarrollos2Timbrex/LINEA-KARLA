@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // ✅ Importa CommonModule
 
 @Component({
-  selector: 'app-productos',
-  standalone: true,
-  imports: [CommonModule], // ✅ Asegúrate de incluirlo aquí
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.css']
+    selector: 'app-productos',
+    imports: [CommonModule], // ✅ Asegúrate de incluirlo aquí
+    templateUrl: './productos.component.html',
+    styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent {
   // Variable para controlar la vista actual (cobertores o colchas)

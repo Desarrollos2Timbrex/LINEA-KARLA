@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,12 +20,21 @@ export class LoginComponent {
 
   mensaje: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    this.authService.login(this.usuario).subscribe(
-      res => this.mensaje = '✅ Logueado con éxito!',
-      err => this.mensaje = '❌ Error al iniciar sesión.'
-    );
+    this.authService.login(this.usuario).subscribe({
+      next: (res) => {
+        this.mensaje = '✅ Logueado con éxito!';
+
+        // Guardar token o sesión (simplificado con localStorage)
+        localStorage.setItem('token', 'mock-token'); // Aquí deberías guardar un token real si lo manejas
+
+        // Redirigir al panel
+        this.router.navigate(['/panel']);
+      },
+      error: () => this.mensaje = '❌ Error al iniciar sesión.'
+    });
   }
 }
+

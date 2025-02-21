@@ -2,11 +2,10 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 
 @Component({
-  selector: 'app-body',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.css']
+    selector: 'app-body',
+    imports: [CommonModule],
+    templateUrl: './body.component.html',
+    styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements AfterViewInit {
   images = [

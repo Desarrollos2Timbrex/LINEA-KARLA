@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-usuarios',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+    selector: 'app-usuarios',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './usuarios.component.html',
+    styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
   usuarios: any[] = [];
