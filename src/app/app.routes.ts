@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 // Simple AuthGuard para proteger la ruta del panel
 const AuthGuard = () => {
-  const router = inject(Router);
+  const router = inject(Router) as Router; // Asignación explícita de tipo
   const isAuthenticated = localStorage.getItem('token'); // Verificamos el token en localStorage
 
   if (!isAuthenticated) {
@@ -16,6 +16,7 @@ const AuthGuard = () => {
   }
   return true;
 };
+
 
 export const routes: Routes = [
   { path: 'login', loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent) },
